@@ -4,9 +4,8 @@ import { PlayList } from "../Playlist/PlayList";
 import SearchBar from "../SearchBar/SearchBar";
 import { SearchResults } from "../SearchResults/SearchResults";
 
-// Add a constructor function to the App component, and pull in props from the React.Component class. Inside of the App constructor, set this.state to an object with a property called searchResults set to an array of objects, each containing name, artist, album, and id properties.
-
 class App extends React.Component {
+
   constructor(props){
     super(props);
     this.state = {
@@ -29,10 +28,30 @@ class App extends React.Component {
         album: 'The Velvet Rope',
         id: 3
       },
+    ],
+    playlistName: 'My Play Play',
+    playlistTracks: [
+      {
+        name: 'Tiny Dancer',
+        artist: 'Elton John',
+        album: 'Madman Across The Water',
+        id: 3
+      },
+      {
+        name: 'Tiny Dancer',
+        artist: 'Tim McGraw',
+        album: 'Love Story',
+        id: 4
+      },
+      {
+        name: 'Tiny Dancer',
+        artist: 'The White Raven',
+        album: 'Tiny Dancer',
+        id: 5
+      }
     ]
     }
   }
-
 
   render() {
     return (
@@ -44,7 +63,7 @@ class App extends React.Component {
           <SearchBar></SearchBar>
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults}></SearchResults>
-            {/* <PlayList></PlayList> */}
+            <PlayList playlistTracks={this.state.playlistTracks} playlistName={this.state.playlistName}></PlayList>
           </div>
         </div>
       </div>
