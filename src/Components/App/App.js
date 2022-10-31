@@ -1,9 +1,9 @@
 import React from 'react';
 import "./App.css";
-import { PlayList } from "../Playlist/PlayList";
+import { PlayList } from "../Playlist/Playlist";
 import SearchBar from "../SearchBar/SearchBar";
 import { SearchResults } from "../SearchResults/SearchResults";
-import TrackList from '../TrackList/TrackList';
+
 
 class App extends React.Component {
 
@@ -36,19 +36,19 @@ class App extends React.Component {
         name: 'Tiny Dancer',
         artist: 'Elton John',
         album: 'Madman Across The Water',
-        id: 3
+        id: 4
       },
       {
         name: 'Tiny Dancer',
         artist: 'Tim McGraw',
         album: 'Love Story',
-        id: 4
+        id: 5
       },
       {
         name: 'Tiny Dancer',
         artist: 'The White Raven',
         album: 'Tiny Dancer',
-        id: 5
+        id: 6
       }
     ]
     };
