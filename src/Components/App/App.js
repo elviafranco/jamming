@@ -3,6 +3,7 @@ import "./App.css";
 import { PlayList } from "../Playlist/PlayList";
 import SearchBar from "../SearchBar/SearchBar";
 import { SearchResults } from "../SearchResults/SearchResults";
+import TrackList from '../TrackList/TrackList';
 
 class App extends React.Component {
 
@@ -50,7 +51,18 @@ class App extends React.Component {
         id: 5
       }
     ]
+    };
+    this.addTrack = this.addTrack.bind(this);
+  }
+
+  addTrack(track) {
+    // this is equal to the array of objects in the state
+    let stateTracks = this.state.playlistTracks;
+    if(stateTracks.find(savedTrack => savedTrack.id === track.id)){
+      return;
     }
+    stateTracks.push(track);
+    this.setState({playlistTracks: stateTracks})
   }
 
   render() {
@@ -62,7 +74,8 @@ class App extends React.Component {
         <div className="App">
           <SearchBar></SearchBar>
           <div className="App-playlist">
-            <SearchResults searchResults={this.state.searchResults}></SearchResults>
+            <SearchResults searchResults={this.state.searchResults} 
+            onAdd={this.addTrack}></SearchResults>
             <PlayList playlistTracks={this.state.playlistTracks} playlistName={this.state.playlistName}></PlayList>
           </div>
         </div>
